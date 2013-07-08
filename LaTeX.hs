@@ -1,16 +1,23 @@
 module LaTeX (plugin) where
 
--- This plugin allows you to include a graphviz xypic diagram
--- in a page like this:
+-- This plugin allows you to include a LaTeX body in a page like this:
 --
--- ~~~ {.xypic name="diagram1"}
---   T^3 \ar[d]_{\mu T}  \ar[r]^{T \mu}              & T^2 \ar[d]^{\mu}  
--- & T   \ar[d]_{T \eta} \ar[r]^{\eta T} \ar@{=}[dr] & T^2 \ar[d]^{\mu}  \\
---   T^2 \ar[r]_{\mu}                                & T
--- & T^2 \ar[r]_{\mu}                                & T
--- a
+-- ~~~ { .latex }
+-- \begin{tikzpicture}[sibling distance=48pt]
+--   \Tree [ .{$a \wedge b$}
+--           [ .{$\neg a \vee c$} 
+--             [ .{$\neg c \vee \neg b$}
+--               [ .\node(n1){$\neg c1$}; {$\neg a$} \node(n2){$c$}; ]
+--               [ .\node(m1){$\neg b$}; [ .{$a$} \node(m2){$b$}; ] ]
+--             ]
+--           ]
+--         ]
+--   \draw[->] (n2)..controls +(north east:1) and +(east:1)..(n1);
+--   \draw[->] (m2)..controls +(east:1) and +(east:1)..(m1);
+-- \end{tikzpicture}
 -- ~~~
 --
+-- Study the skeleton of the LaTeX source file at the end of this file.
 -- The "pdflatex", "pdfcrop", and "convert" executabless must be in the path.
 -- The generated png file will be saved in the static img directory.
 -- If no name is specified, a unique name will be generated from a hash
