@@ -111,7 +111,7 @@ transformBlock (CodeBlock (_, classes, namevals) contents) | "xypic2" `elem` cla
     ---------------------------------------------------------------------------------
     -- ### html
     ---------------------------------------------------------------------------------
-    return $ RawBlock "html" ("<p><object height=84 type=\"image/svg+xml\" data=\""
+    return $ RawBlock (Format "html") ("<p><object height=84 type=\"image/svg+xml\" data=\""
 --    return $ RawHtml ("<p><object height=84 type=\"image/svg+xml\" data=\""
                       ++ ("/img" </> outfile)
                       ++ "\"></object></p>")

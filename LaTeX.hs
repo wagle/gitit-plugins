@@ -94,7 +94,7 @@ transformBlock (CodeBlock (_, classes, namevals) contents) | "latex" `elem` clas
     -- ### html
     --------------------------------------------------------------------------
 --    return $ RawHtml ("<p><object type=\"image/svg+xml\" data=\""
-    return $ RawBlock "html" ("<p><object type=\"image/svg+xml\" data=\""
+    return $ RawBlock (Format "html") ("<p><object type=\"image/svg+xml\" data=\""
                       ++ ("/img" </> outfile)
                       ++ "\"></object></p>")
 transformBlock x = return x

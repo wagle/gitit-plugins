@@ -35,7 +35,7 @@ transformBlock (CodeBlock (_, classes, namevals) contents) | "dot" `elem` classe
                          contents
     if ec == ExitSuccess
 --       then return $ RawHtml ("<p><object "
-       then return $ RawBlock "html" ("<p><object "
+       then return $ RawBlock (Format "html") ("<p><object "
                               ++ " type=\"image/svg+xml\""
                               ++ " data=\"" ++ ("/img" </> outfile) ++ "\""
 --                              ++ " height=100%"

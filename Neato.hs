@@ -34,7 +34,7 @@ transformBlock (CodeBlock (_, classes, namevals) contents) | "neato" `elem` clas
                          [ "-Tsvg", "-o", staticDir cfg </> "img" </> outfile ]
                          contents
     if ec == ExitSuccess
-       then return $ RawBlock "html" ("<!-- foo --><p><object data=\""
+       then return $ RawBlock (Format "html") ("<!-- foo --><p><object data=\""
 --       then return $ RawHtml ("<!-- foo --><p><object data=\""
                                       ++ ("/img" </> outfile)
                                       ++ "\" type=\"image/svg+xml\">woof</object><!-- baz --></p>")
